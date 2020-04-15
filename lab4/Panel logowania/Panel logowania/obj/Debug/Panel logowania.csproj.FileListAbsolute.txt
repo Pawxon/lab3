@@ -1,0 +1,24 @@
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel logowania.csprojAssemblyReference.cache
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.Properties.Resources.resources
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel logowania.csproj.GenerateResource.cache
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel logowania.csproj.CoreCompileInputs.cache
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\bin\Debug\Panel logowania.exe.config
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\bin\Debug\Panel logowania.exe
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\bin\Debug\Panel logowania.pdb
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel logowania.exe
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel logowania.pdb
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.Logowanie.resources
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.uzytkownik1.resources
+C:\Users\Pawxon\source\repos\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.uzytkownik2.resources
+D:\Programowanie\Panel logowania\Panel logowania\bin\Debug\Panel logowania.exe.config
+D:\Programowanie\Panel logowania\Panel logowania\bin\Debug\Panel logowania.exe
+D:\Programowanie\Panel logowania\Panel logowania\bin\Debug\Panel logowania.pdb
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel logowania.csprojAssemblyReference.cache
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.Logowanie.resources
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.Properties.Resources.resources
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.uzytkownik1.resources
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel_logowania.uzytkownik2.resources
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel logowania.csproj.GenerateResource.cache
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel logowania.csproj.CoreCompileInputs.cache
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel logowania.exe
+D:\Programowanie\Panel logowania\Panel logowania\obj\Debug\Panel logowania.pdb
