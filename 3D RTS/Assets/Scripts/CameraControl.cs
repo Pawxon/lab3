@@ -22,7 +22,7 @@ public class CameraControl : MonoBehaviour
     Vector2 mousePos, mousePosScreen,keyboardInput,mouseScroll;
     bool isCursorInGameScreen;
     Rect selectionRect, boxRect;
- List <Unit> selectedUnits = new List<Unit>();
+    List <Unit> selectedUnits = new List<Unit>();
 
     private void Awake()
     {
@@ -121,6 +121,7 @@ public class CameraControl : MonoBehaviour
 
     void UpdateSelecting()
     {
+        selectedUnits.Clear();
         foreach(Unit unit in Unit.SelectablesUnit)
         {
             Debug.Log(unit.ToString());

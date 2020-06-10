@@ -7,7 +7,7 @@ public class Unit : MonoBehaviour
 {
     public enum Task
     {
-        idle,move,follow,chase,attack
+        idle, move, follow, chase, attack
     }
 
     const string ANIMATOR_SPEED = "Speed",
@@ -18,36 +18,40 @@ public class Unit : MonoBehaviour
     static List<ISelectable> selectablesUnits = new List<ISelectable>();
 
     public bool IsAlive { get { return hp > 0; } }
-    public float HealthPercent { get{ return hp / hpMax; } }
+    public float HealthPercent { get { return hp / hpMax; } }
 
-    public Transform target;
-
-    [SerializeField]
-    float hp, hpMax = 100;
+    [Header("Unit")]
     [SerializeField]
     GameObject hpBarPrefab;
     [SerializeField]
-    float stoppingDistance = 1;
+    float hp, hpMax = 100;
+    [SerializeField]
+    protected float attackDistance = 1,
+        attackCooldown = 1,
+        stoppingDistance = 1,
+        attackDamage = 0;
 
+    protected Transform target;
     protected HealthBar healthBar;
-    protected Task task=Task.idle;
+    protected Task task = Task.idle;
     protected NavMeshAgent nav;
 
+    float attackTimer;
     Animator animator;
-   
-
-    
-    
 
 
-    private void Awake()
+
+
+
+
+    protected virtual void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         hp = hpMax;
-       healthBar =Instantiate(hpBarPrefab, transform).GetComponent<HealthBar>();
+        healthBar = Instantiate(hpBarPrefab, transform).GetComponent<HealthBar>();
 
-        
+
     }
 
     private void Start()
@@ -69,18 +73,18 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        
-        if(IsAlive)
+
+        if (IsAlive)
             switch (task)
-        {
-            case Task.idle: Idling(); break;
-            case Task.move: Moving(); break;
-            case Task.follow: Following(); break;
-            case Task.chase: Chasing(); break;
-            case Task.attack: Attacking(); break;
-                
-            
-        }
+            {
+                case Task.idle: Idling(); break;
+                case Task.move: Moving(); break;
+                case Task.follow: Following(); break;
+                case Task.chase: Chasing(); break;
+                case Task.attack: Attacking(); break;
+
+
+            }
         Animate();
     }
 
@@ -92,7 +96,7 @@ public class Unit : MonoBehaviour
     protected virtual void Moving()
     {
         float distance = Vector3.Magnitude(nav.destination - transform.position);
-        if (distance < stoppingDistance)
+        if (distance <= stoppingDistance)
         {
             task = Task.idle;
         }
@@ -102,8 +106,6 @@ public class Unit : MonoBehaviour
 
     protected virtual void Following()
     {
-
-        
         if (target)
         {
             nav.SetDestination(target.position);
@@ -116,12 +118,48 @@ public class Unit : MonoBehaviour
 
     protected virtual void Chasing()
     {
-         //todo
+        if (target)
+        {
+            nav.SetDestination(target.position);
+            float distance = Vector3.Magnitude(nav.destination - transform.position);
+            if (distance <= attackDistance)
+            {
+                task = Task.attack;
+            }
+
+        }
+        else
+        {
+            task = Task.idle;
+        }
     }
 
     protected virtual void Attacking()
     {
-        nav.velocity = Vector3.zero;
+        if (target)
+        {
+            nav.velocity = Vector3.zero;
+            transform.LookAt(target);
+            float distance = Vector3.Magnitude(nav.destination - transform.position);
+            if (distance <= attackDistance)
+            {
+                if ((attackTimer -= Time.deltaTime) <= 0)
+                    Attack();
+
+            }
+
+            else
+            {
+                task = Task.chase;
+            }
+            
+        }
+        else
+        {
+            task = Task.idle;
+        }
+        
+        
     }
 
 
@@ -134,6 +172,36 @@ public class Unit : MonoBehaviour
         animator.SetBool(ANIMATOR_ALIVE, hp > 0);
 
     }
-    
+
+
+    public virtual void Attack()
+    {
+        animator.SetTrigger(ANIMATOR_ATTACK);
+        attackTimer = attackCooldown;
+    }
+
+    public virtual void DealDamage()
+    {
+        if (target)
+        {
+            Unit unit = target.GetComponent<Unit>();
+            if(unit && unit.IsAlive)
+            {
+                unit.hp -= attackDamage;
+            }
+            else
+            {
+                target = null;
+            }
+        }
+    }
+
+
+    protected virtual void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackDistance);
+    }
+
 
 }
