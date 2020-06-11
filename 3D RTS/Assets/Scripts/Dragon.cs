@@ -128,6 +128,7 @@ public class Dragon : Unit
     {
         base.OnDrawGizmosSelected();
         Gizmos.color = Color.blue;
+        if(!Application.isPlaying)
         startPoint = transform.position;
         Gizmos.DrawWireSphere(startPoint, patrolRadius);
     }
