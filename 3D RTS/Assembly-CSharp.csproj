@@ -119,7 +119,9 @@
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\ISelectable.cs" />
     <Compile Include="Assets\Scripts\Soldier.cs" />
+    <Compile Include="Assets\Scripts\Tent.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
+    <Compile Include="Assets\Scripts\UnitButton.cs" />
     <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
     <None Include="Assets\NatureStarterKit\info.txt" />
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

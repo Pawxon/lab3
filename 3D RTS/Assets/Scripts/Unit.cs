@@ -14,8 +14,8 @@ public class Unit : MonoBehaviour
         ANIMATOR_ALIVE = "Alive",
         ANIMATOR_ATTACK = "Attack";
 
-    public static List<ISelectable> SelectablesUnit { get { return selectablesUnits; } }
-    static List<ISelectable> selectablesUnits = new List<ISelectable>();
+    public static List<ISelectable> SelectableUnits { get { return selectableUnits; } }
+    static List<ISelectable> selectableUnits = new List<ISelectable>();
 
     public bool IsAlive { get { return hp > 0; } }
     public float HealthPercent { get { return hp / hpMax; } }
@@ -59,7 +59,7 @@ public class Unit : MonoBehaviour
     {
         if (this is ISelectable)
         {
-            selectablesUnits.Add(this as ISelectable);
+            selectableUnits.Add(this as ISelectable);
             (this as ISelectable).SetSelected(false);
         }
     }
@@ -67,7 +67,7 @@ public class Unit : MonoBehaviour
     private void OnDestroy()
     {
         if (this is ISelectable)
-            selectablesUnits.Remove(this as ISelectable);
+            selectableUnits.Remove(this as ISelectable);
     }
 
 
@@ -222,10 +222,12 @@ public class Unit : MonoBehaviour
         if (!IsAlive)
         {
             healthBar.gameObject.SetActive(false);
-            //enabled = false;
+            enabled = false;
             nav.enabled = false;
             foreach (var collider in GetComponents<Collider>())
                 collider.enabled = false;
+            if (this is ISelectable) selectableUnits.Remove(this as ISelectable);
+            Animate();
         }
     }
 
