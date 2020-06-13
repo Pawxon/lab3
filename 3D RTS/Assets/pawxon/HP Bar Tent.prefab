@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a67a771d8252f94c96186831a09f24b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 11.95, z: -8}
+  offset: {x: 0, y: 8, z: 0}
 --- !u!1 &8822489489545611666
 GameObject:
   m_ObjectHideFlags: 0
