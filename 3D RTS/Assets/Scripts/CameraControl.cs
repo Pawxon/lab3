@@ -24,6 +24,8 @@ public class CameraControl : MonoBehaviour
     Rect selectionRect, boxRect;
     List <ISelectable> selectedUnits = new List<ISelectable>();
 
+    GameObject buildingPrefabToSpawn;
+
     private void Awake()
     {
         cameraControl = this;
@@ -207,6 +209,12 @@ public class CameraControl : MonoBehaviour
     public static void SpawnUnits(GameObject prefab)
     {
         cameraControl.GiveCommands(prefab,"Spawn");
+    }
+
+    public static void SpawnBuilding(GameObject prefab)
+    {
+        cameraControl.buildingPrefabToSpawn = prefab;
+
     }
 
 }
